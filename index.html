@@ -6,6 +6,8 @@
     <title>KCAU Tech club portal</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.2/css/bootstrap.min.css">
+
     <style>
         body{
             width: 100vw;
@@ -14,6 +16,7 @@
             width: 100vw;
             height: 30px;
             background-color: #9E8605;
+            margin-top: 5%;
         }
         .container-fluid.main{
             width: 100vw;
@@ -51,11 +54,39 @@
             justify-content: center;
             color: white;
         }
+<<<<<<< HEAD
         
+=======
+        .outer{
+            display: flex; /* displays flex-items (children) inline */
+            overflow-x: auto;
+            margin-top: 10px;
+        }
+
+        .inner {
+            flex: 0 0 20%; /* doesn't grow nor shrink, initial width set to 25% of the parent's */
+            background-color: rgb(237, 243, 243);
+            
+            border-radius: 0.8cm;
+            margin-right: 7px;
+            display: flex;
+            justify-content: center;
+            height: 20%;
+            
+        }
+        footer{
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            
+        }
+       
+
+>>>>>>> 1ddb6715ff62953e3f645b75acaee5085bdc7625
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container-fluid nav">
             <a class="navbar-brand" href="#">
                 <img src="images/Screenshot (192).png" alt="" width="40" height="30" class="d-inline-block align-text-top">
@@ -91,7 +122,7 @@
                             <a class="nav-link" href="sign_up.html">Sign Up</a>
                         </li>
                         <li class="nav-item" >
-                            <img src="images/download 4.jpeg" name="profile_img" style="height: 30px; width: 30px; border-radius: 50%;" alt="">
+                            <a href="profile.html"><img src="images/download 4.jpeg" name="profile_img" style="height: 30px; width: 30px; border-radius: 50%;" alt=""></a>
                         </li>
                     </ul>
                 </div>              
@@ -121,51 +152,128 @@
         </div>
         
     </div>
-    <div class="horizontal">
+    <div class="horizontal" style="margin-top: 5px; border-radius: 0.4cm;" >
         <h4>Leaders</h4>
     </div>
-    <div class="leaders">
-        <div class="row">
+   
+    <div class="outer">
+        <div class="inner">
             <div class="col-lg-3">
-                <img src="images/WhatsApp Image 2023-11-05 at 20.45.06_8719fd9e.jpg" height="140px" width="120px" style="border-radius: 50%;" alt="">
+                <img src="images/WhatsApp Image 2023-11-05 at 20.45.06_8719fd9e.jpg" height="80px" width="80px" style="border-radius: 50%;" alt="">
                 <h5>Kevin Mungai</h5>
                 <p>Web Master</p>
-            </div>
-            <div class="col-lg-3">
-                <img src="images/WhatsApp Image 2023-11-05 at 20.45.06_8719fd9e.jpg" height="140px" width="120px" style="border-radius: 50%;" alt="">
-                <h5>Kevin Mungai</h5>
-                <p>Web Master</p>
-            </div>
-            <div class="col-lg-3">
-                <img src="images/WhatsApp Image 2023-11-05 at 20.45.06_8719fd9e.jpg" height="140px" width="120px" style="border-radius: 50%;" alt="">
-                <h5>Kevin Mungai</h5>
-                <p>Web Master</p>
-            </div>
-            <div class="col-lg-3">
-                <img src="images/WhatsApp Image 2023-11-05 at 20.45.06_8719fd9e.jpg" height="140px" width="120px" style="border-radius: 50%;" alt="">
-                <h5>Kevin Mungai</h5>
-                <p>Web Master</p>
+                <div class="icons" style="display: flex;">
+                    <a href=""><i class="fa-brands fa-x "  style="color: black; padding-right: 7px;"></i></a>
+                    <a href=""><i class="fa-brands fa-linkedin" style="color: black; padding-right: 7px;"></i></a>
+                    <a href=""><i class="fa-brands fa-github" style="color: black; padding-right: 7px;"></i></a>
+                </div>
             </div>
         </div>
-        <div class="row">
+        <div class="inner">
             <div class="col-lg-3">
-                <img src="images/WhatsApp Image 2023-11-05 at 20.45.06_8719fd9e.jpg" height="140px" width="120px" style="border-radius: 50%;" alt="">
+                <img src="images/WhatsApp Image 2023-11-05 at 20.45.06_8719fd9e.jpg" height="80px" width="80px" style="border-radius: 50%;" alt="">
                 <h5>Kevin Mungai</h5>
                 <p>Web Master</p>
-            </div>
-            <div class="col-lg-3">
-                <img src="images/WhatsApp Image 2023-11-05 at 20.45.06_8719fd9e.jpg" height="140px" width="120px" style="border-radius: 50%;" alt="">
-                <h5>Kevin Mungai</h5>
-                <p>Web Master</p>
-            </div>
-            <div class="col-lg-3">
-                <img src="images/WhatsApp Image 2023-11-05 at 20.45.06_8719fd9e.jpg" height="140px" width="120px" style="border-radius: 50%;" alt="">
-                <h5>Kevin Mungai</h5>
-                <p>Web Master</p>
-            </div>           
+                <div class="icons" style="display: flex;">
+                    <a href=""><i class="fa-brands fa-x "  style="color: black; padding-right: 7px;"></i></a>
+                    <a href=""><i class="fa-brands fa-linkedin" style="color: black; padding-right: 7px;"></i></a>
+                    <a href=""><i class="fa-brands fa-github" style="color: black; padding-right: 7px;"></i></a>
+                </div>
             </div>
         </div>
-    </div>
+        <div class="inner">
+            <div class="col-lg-3">
+                <img src="images/WhatsApp Image 2023-11-05 at 20.45.06_8719fd9e.jpg" height="80px" width="80px" style="border-radius: 50%;" alt="">
+                <h5>Kevin Mungai</h5>
+                <p>Web Master</p>
+                <div class="icons" style="display: flex;">
+                    <a href=""><i class="fa-brands fa-x "  style="color: black; padding-right: 7px;"></i></a>
+                    <a href=""><i class="fa-brands fa-linkedin" style="color: black; padding-right: 7px;"></i></a>
+                    <a href=""><i class="fa-brands fa-github" style="color: black; padding-right: 7px;"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="inner">
+            <div class="col-lg-3">
+                <img src="images/WhatsApp Image 2023-11-05 at 20.45.06_8719fd9e.jpg" height="80px" width="80px" style="border-radius: 50%;" alt="">
+                <h5>Kevin Mungai</h5>
+                <p>Web Master</p>
+                <div class="icons" style="display: flex;">
+                    <a href=""><i class="fa-brands fa-x "  style="color: black; padding-right: 7px;"></i></a>
+                    <a href=""><i class="fa-brands fa-linkedin" style="color: black; padding-right: 7px;"></i></a>
+                    <a href=""><i class="fa-brands fa-github" style="color: black; padding-right: 7px;"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="inner">
+            <div class="col-lg-3">
+                <img src="images/WhatsApp Image 2023-11-05 at 20.45.06_8719fd9e.jpg" height="80px" width="80px" style="border-radius: 50%;" alt="">
+                <h5>Kevin Mungai</h5>
+                <p>Web Master</p>
+                <div class="icons" style="display: flex;">
+                    <a href=""><i class="fa-brands fa-x "  style="color: black; padding-right: 7px;"></i></a>
+                    <a href=""><i class="fa-brands fa-linkedin" style="color: black; padding-right: 7px;"></i></a>
+                    <a href=""><i class="fa-brands fa-github" style="color: black; padding-right: 7px;"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="inner">
+            <div class="col-lg-3">
+                <img src="images/WhatsApp Image 2023-11-05 at 20.45.06_8719fd9e.jpg" height="80px" width="80px" style="border-radius: 50%;" alt="">
+                <h5>Kevin Mungai</h5>
+                <p>Web Master</p>
+                <div class="icons" style="display: flex;">
+                    <a href=""><i class="fa-brands fa-x "  style="color: black; padding-right: 7px;"></i></a>
+                    <a href=""><i class="fa-brands fa-linkedin" style="color: black; padding-right: 7px;"></i></a>
+                    <a href=""><i class="fa-brands fa-github" style="color: black; padding-right: 7px;"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="inner">
+            <div class="col-lg-3">
+                <img src="images/WhatsApp Image 2023-11-05 at 20.45.06_8719fd9e.jpg" height="80px" width="80px" style="border-radius: 50%;" alt="">
+                <h5>Kevin Mungai</h5>
+                <p>Web Master</p>
+                <div class="icons" style="display: flex;">
+                    <a href=""><i class="fa-brands fa-x "  style="color: black; padding-right: 7px;"></i></a>
+                    <a href=""><i class="fa-brands fa-linkedin" style="color: black; padding-right: 7px;"></i></a>
+                    <a href=""><i class="fa-brands fa-github" style="color: black; padding-right: 7px;"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="inner">
+            <div class="col-lg-3">
+                <img src="images/WhatsApp Image 2023-11-05 at 20.45.06_8719fd9e.jpg" height="80px" width="80px" style="border-radius: 50%;" alt="">
+                <h5>Kevin Mungai</h5>
+                <p>Web Master</p>
+                <div class="icons" style="display: flex;">
+                    <a href=""><i class="fa-brands fa-x "  style="color: black; padding-right: 7px;"></i></a>
+                    <a href=""><i class="fa-brands fa-linkedin" style="color: black; padding-right: 7px;"></i></a>
+                    <a href=""><i class="fa-brands fa-github" style="color: black; padding-right: 7px;"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="inner">
+            <div class="col-lg-3">
+                <img src="images/WhatsApp Image 2023-11-05 at 20.45.06_8719fd9e.jpg" height="80px" width="80px" style="border-radius: 50%;" alt="">
+                <h5>Kevin Mungai</h5>
+                <p>Web Master</p>
+                <div class="icons" style="display: flex;">
+                    <a href=""><i class="fa-brands fa-x "  style="color: black; padding-right: 7px;"></i></a>
+                    <a href=""><i class="fa-brands fa-linkedin" style="color: black; padding-right: 7px;"></i></a>
+                    <a href=""><i class="fa-brands fa-github" style="color: black; padding-right: 7px;"></i></a>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="contact" >
+            <h4>Have an issue? <br> Contact Us</h4>
+            <label for="contact"></label>
+            <input type="text" class="form-control" >
+        </div>
+      </footer>
     
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
