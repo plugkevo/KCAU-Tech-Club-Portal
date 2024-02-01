@@ -7,7 +7,63 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <style>
+        body{
+            background-color: #f4f2ee;
+            margin-left: 10px;
+        }
+        .container-fluid.main{
+            margin-top: 8%;
+        }
+        .bio{
+            width: 60%;
+            border-radius: 0.4cm;
+
+        }
+        .col-lg-3{
+            background-color: white;
+            border-radius: 0.4cm;
+            margin-left: 25px;
+        }
+        .blogs{
+            background-color: white;
+        }
+        .header-blogs{
+            display: flex;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        .contact{
+            position: fixed; /* Fix the container to the bottom */
+            bottom: 0;
+            width: 100%;
+            display: flex-end; /* Use flexbox for internal layout */
+            justify-content: center; /* Center the button horizontally */
+            align-items: center; /* Center the button vertically */
+}
         
+        #slide-up-content {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50%;
+            height: 400px; /* Adjust height as needed */
+            background-color: #3D1383;
+            color: white;
+            transform: translateY(100%); /* Initially hidden below the screen */
+            transition: transform 0.3s ease-in-out; /* Add a smooth transition */
+            border-radius: 0.4cm;
+        
+        }
+
+        #slide-button:focus-within ~ #slide-up-content {
+            transform: translateY(0); /* Reveal the div when button is focused */
+        }
+        /* Add this new rule to collapse the div when clicking outside */
+        #slide-up-content:not(:focus-within) {
+        transform: translateY(100%); /* Hide the div when not focused */
+        }
     </style>
 </head>
 <body>
@@ -54,6 +110,64 @@
             </div>
         </div>
     </nav>
+    <div class="container-fluid main">
+        <div class="row">
+            <div class="col-lg-8 shadow p-3 mb-5 bg-body rounded ">
+                <div class="profile-image" style="display: flex; ">
+                    <img src="/images/download.jpeg" height="140px" width="140px" style="border-radius: 50%;" alt="">
+                    <a href="" ><i class="fa-solid fa-pen" style="margin-top: 120px;"></i></a>  
+                </div>
+                <h3 style="margin-top: 20px;">Naisula</h3>
+                <h5 style="margin-top: 20px;">BIO</h5>
+                <div class="bio">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere similique expedita aperiam vero odio consequatur provident quis tenetur laborum dolorum.</p>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="skills">
+                    <h5 style="text-align: center;">SKILLS</h5>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga debitis corrupti nostrum animi minus eos nam aspernatur eius consequatur temporibus?</p>
+                    <i class="fa-solid fa-pen" style="float: right; "></i>
+                </div>
+                <hr>
+                <div class="languages">
+                    <h5 style="text-align: center;">Languages/Frameworks</h5>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore iure sed sapiente. Eligendi, nisi qui eveniet provident quos est illo.</p>
+                    <a href=""><i class="fa-solid fa-pen" style="float: right;"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="inputs">
+        <div class="row">
+            <div class="blogs col-lg-6">
+                <div class="header-blogs">
+                    <h5>Blogs</h5>
+                    <button class="btn btn-primary" style="margin-left: 80%; margin-top: 4px; background-color: #9E8605;">POST</button>
+                </div>
+                
+                <div class="body-blogs">
+                    <div class="existing-blogs" style="display: flex; justify-content: space-between;">
+                        <h6>Existing Blogs</h6> 
+                        <a href=""><i class="fa-solid fa-pen" style=""></i></a>
+
+                    </div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, iusto!</p>
+                </div>           
+            </div>
+            <div class="contact col-lg-6">
+                <button id="slide-button" class="btn btn-primary" style="background-color: #3D1383; float: right;">ContactUs</button>
+                    <div id="slide-up-content" >
+                        
+                            <h4 style="text-align: center;"><b>Contactus!!</b></h4>
+                            <label for="message" class="label"></label>
+                            <input type="text" placeholder="Enter your message" name="email" class="form-control" style=" width: 80%; height: 50%;">
+                            <button class="btn btn-primary" style="background-color: #9E8605; margin-left: 50%; margin-top: 15px;">Send</button>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
     
     
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
