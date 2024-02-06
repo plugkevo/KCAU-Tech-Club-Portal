@@ -1,3 +1,9 @@
+<?php
+    include('connection.php');
+?>
+<?php
+    include('sign_up_conn.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,7 +56,7 @@
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container-fluid nav">
             <a class="navbar-brand" href="#">
                 <img src="images/Screenshot (192).png" alt="" width="40" height="30" class="d-inline-block align-text-top">
@@ -62,58 +68,68 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="events.html">Events</a>
+                        <a class="nav-link" href="events.php">Events</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="blogs.html">Blogs</a>
+                        <a class="nav-link" href="blogs.php">Blogs</a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="forum.html">Forums</a>
+                        <a class="nav-link" href="forum.php">Forums</a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="job_board.html">Jobs</a>
+                        <a class="nav-link" href="job_board.php">Jobs</a>
                     </li>                    
                 </ul>
                 <div class="navbar-collapse collapse w-100 order-3 dual-collapse2" style=" justify-content: end;">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="login.html">Login</a>
+                            <a class="nav-link" href="login.php">Login</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="sign_up.html">Sign Up</a>
+                            <a class="nav-link" href="sign_up.php">Sign Up</a>
                         </li>
                         <li class="nav-item" >
-                            <img src="images/download 4.jpeg" name="profile_img" style="height: 30px; width: 30px; border-radius: 50%;" alt="">
+                            <a href="profile.html"><img src="images/download 4.jpeg" name="profile_img" style="height: 30px; width: 30px; border-radius: 50%;" alt=""></a>
                         </li>
                     </ul>
                 </div>              
             </div>
         </div>
     </nav>
-    <div class="container-fluid main">
-        <img src="" alt="">
-    
-        <div class="credentials" >
-            <h3>SIGN UP</h3>
-            <label for="email" class="label">Email</label>
-            <input type="text" placeholder="Enter your school email" name="email" class="form-control" style=" width: 80%;">
+    <form action="sign_up.php" method="POST">
+        <div class="container-fluid main">
+            <?php
+                if($response)
+                {
+                    include('response.php');
+                }
+                 if($error)
+               {
+                include('error.php');
+               }?> 
+            <img src="" alt="">
+        
+            <div class="credentials" >
+                <h3>SIGN UP</h3>
+                <label for="email" class="label">Email</label>
+                <input type="text" placeholder="Enter your school email" name="email" class="form-control" style=" width: 80%;">
 
-            <label for="username" class="label">Username</label>
-            <input type="text" name="username" id="" placeholder="Enter a username" class="form-control" style=" width: 80%;">
+                <label for="username" class="label">Username</label>
+                <input type="text" name="username" id="" placeholder="Enter a username" class="form-control" style=" width: 80%;">
 
-            <label for="password" class="label">Password</label>
-            <input type="password" name="password" id="" placeholder="Enter a strong password" class="form-control" style=" width: 80%;">
+                <label for="password" class="label">Password</label>
+                <input type="password" name="password" id="" placeholder="Enter a strong password" class="form-control" style=" width: 80%;">
 
-            <label for="confirm_password" class="label">Confirm Password</label>
-            <input type="password" name="confirm_password" class="form-control" placeholder="Re-enter your password" style=" width: 80%;">
+                <label for="confirm_password" class="label">Confirm Password</label>
+                <input type="password" name="confirm_password" class="form-control" placeholder="Re-enter your password" style=" width: 80%;">
 
-            <button class="btn btn-primary" style="background-color: #9E8605;">SIGNUP</button>
+                <button class="btn btn-primary" name="submit" style="background-color: #9E8605;">SIGNUP</button>
+            </div>
         </div>
-    </div>
-    
+    </form>
     
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>

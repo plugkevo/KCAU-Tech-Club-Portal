@@ -174,7 +174,7 @@
 </head>
 <body>
     
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container-fluid nav">
             <a class="navbar-brand" href="#">
                 <img src="images/Screenshot (192).png" alt="" width="40" height="30" class="d-inline-block align-text-top">
@@ -186,28 +186,28 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="events.html">Events</a>
+                        <a class="nav-link" href="events.php">Events</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="blogs.html">Blogs</a>
+                        <a class="nav-link" href="blogs.php">Blogs</a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="forum.html">Forums</a>
+                        <a class="nav-link" href="forum.php">Forums</a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="job_board.html">Jobs</a>
+                        <a class="nav-link" href="job_board.php">Jobs</a>
                     </li>                    
                 </ul>
                 <div class="navbar-collapse collapse w-100 order-3 dual-collapse2" style=" justify-content: end;">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="login.html">Login</a>
+                            <a class="nav-link" href="login.php">Login</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="sign_up.html">Sign Up</a>
+                            <a class="nav-link" href="sign_up.php">Sign Up</a>
                         </li>
                         <li class="nav-item" >
                             <a href="profile.html"><img src="images/download 4.jpeg" name="profile_img" style="height: 30px; width: 30px; border-radius: 50%;" alt=""></a>

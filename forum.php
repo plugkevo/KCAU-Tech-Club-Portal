@@ -46,34 +46,17 @@
             display: flex;
         }
         .job-tips{
-            background-color: #9E8605;
+            background-color: ;
             border-radius: 0.5cm;
             margin-left: 30px;
-            color: white;
+            color: ;
             height: 100%;
         }
-        #slide-up-content {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 200px; /* Adjust height as needed */
-            background-color: #f0f0f0;
-            transform: translateY(100%); /* Initially hidden below the screen */
-            transition: transform 0.3s ease-in-out; /* Add a smooth transition */
-        }
-
-        #slide-button:focus-within ~ #slide-up-content {
-            transform: translateY(0); /* Reveal the div when button is focused */
-        }
-
-        
-       
         
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container-fluid nav">
             <a class="navbar-brand" href="#">
                 <img src="images/Screenshot (192).png" alt="" width="40" height="30" class="d-inline-block align-text-top">
@@ -85,28 +68,28 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="events.html">Events</a>
+                        <a class="nav-link" href="events.php">Events</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="blogs.html">Blogs</a>
+                        <a class="nav-link" href="blogs.php">Blogs</a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="forum.html">Forums</a>
+                        <a class="nav-link" href="forum.php">Forums</a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="job_board.html">Jobs</a>
+                        <a class="nav-link" href="job_board.php">Jobs</a>
                     </li>                    
                 </ul>
                 <div class="navbar-collapse collapse w-100 order-3 dual-collapse2" style=" justify-content: end;">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="login.html">Login</a>
+                            <a class="nav-link" href="login.php">Login</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="sign_up.html">Sign Up</a>
+                            <a class="nav-link" href="sign_up.php">Sign Up</a>
                         </li>
                         <li class="nav-item" >
                             <a href="profile.html"><img src="images/download 4.jpeg" name="profile_img" style="height: 30px; width: 30px; border-radius: 50%;" alt=""></a>
@@ -116,6 +99,7 @@
             </div>
         </div>
     </nav>
+
     <div class="header">
         <div class="label">
             <label for="search" class=""></label>
@@ -123,9 +107,10 @@
 
             <button class="btn btn-primary" style=" background-color: #3D1383; margin-left: 5px; margin-top: ;" >Search</button>
         </div>      
+        
     </div>
     <div class="title">
-        <h4>JOB Board</h4>
+        <h4>Discussion Forum</h4>
     </div>
         <div class="container-fluid">
             <div class="row">
@@ -147,8 +132,8 @@
                     </div>        
                 </div>  
                 <div class="col-lg-4">
-                    <div class="job-tips" style="">
-                        <h4 style="text-align: center;"> Job tips</h4>
+                    <div class="job-tips shadow" style="">
+                        <h4 style="text-align: center;"> Related Questions</h4>
                         <ul>
                             <li style="margin-bottom: 4px;">Define your goals and target your search</li>
                             <li style="margin-bottom: 4px;">Craft a compelling resume and cover letter:</li>
@@ -158,13 +143,12 @@
                         </ul>
                     </div>
                 </div>   
-                <button id="slide-button">Slide Up</button>
-                    <div id="slide-up-content">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus, sapiente.
-                </div>
+                
    
             </div>    
         </div>    
+    
+    
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>
