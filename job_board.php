@@ -109,7 +109,7 @@
                             <a class="nav-link" href="sign_up.php">Sign Up</a>
                         </li>
                         <li class="nav-item" >
-                            <a href="profile.html"><img src="images/download 4.jpeg" name="profile_img" style="height: 30px; width: 30px; border-radius: 50%;" alt=""></a>
+                            <a href="profile.php"><img src="images/download 4.jpeg" name="profile_img" style="height: 30px; width: 30px; border-radius: 50%;" alt=""></a>
                         </li>
                     </ul>
                 </div>              

@@ -1,3 +1,14 @@
+<?php
+    include('connection.php');
+
+    $queryrecord=mysqli_query($conn,"SELECT * FROM user_credentials WHERE no='".$_GET['id']."' ");
+    while($fetchrecord = mysqli_fetch_array($queryrecord))
+    {
+        $id = $fetchrecord['no'];
+        $username_user = $fetchrecord['username'];
+              
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,7 +52,7 @@
             display: flex-end; /* Use flexbox for internal layout */
             justify-content: center; /* Center the button horizontally */
             align-items: center; /* Center the button vertically */
-}
+        }
         
         #slide-up-content {
             position: absolute;
@@ -67,7 +78,7 @@
     </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container-fluid nav">
             <a class="navbar-brand" href="#">
                 <img src="images/Screenshot (192).png" alt="" width="40" height="30" class="d-inline-block align-text-top">
@@ -103,72 +114,73 @@
                             <a class="nav-link" href="sign_up.php">Sign Up</a>
                         </li>
                         <li class="nav-item" >
-                            <a href="profile.html"><img src="images/download 4.jpeg" name="profile_img" style="height: 30px; width: 30px; border-radius: 50%;" alt=""></a>
+                            <a href="profile.php"><img src="images/download 4.jpeg" name="profile_img" style="height: 30px; width: 30px; border-radius: 50%;" alt=""></a>
                         </li>
                     </ul>
                 </div>              
             </div>
         </div>
     </nav>
-    <div class="container-fluid main">
-        <div class="row">
-            <div class="col-lg-8 shadow p-3 mb-5 bg-body rounded ">
-                <div class="profile-image" style="display: flex; ">
-                    <img src="/images/download.jpeg" height="140px" width="140px" style="border-radius: 50%;" alt="">
-                    <a href="" ><i class="fa-solid fa-pen" style="margin-top: 120px;"></i></a>  
-                </div>
-                <h3 style="margin-top: 20px;">Naisula</h3>
-                <h5 style="margin-top: 20px;">BIO</h5>
-                <div class="bio">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere similique expedita aperiam vero odio consequatur provident quis tenetur laborum dolorum.</p>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="skills">
-                    <h5 style="text-align: center;">SKILLS</h5>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga debitis corrupti nostrum animi minus eos nam aspernatur eius consequatur temporibus?</p>
-                    <i class="fa-solid fa-pen" style="float: right; "></i>
-                </div>
-                <hr>
-                <div class="languages">
-                    <h5 style="text-align: center;">Languages/Frameworks</h5>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore iure sed sapiente. Eligendi, nisi qui eveniet provident quos est illo.</p>
-                    <a href=""><i class="fa-solid fa-pen" style="float: right;"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="inputs">
-        <div class="row">
-            <div class="blogs col-lg-6">
-                <div class="header-blogs">
-                    <h5>Blogs</h5>
-                    <button class="btn btn-primary" style="margin-left: 80%; margin-top: 4px; background-color: #9E8605;">POST</button>
-                </div>
-                
-                <div class="body-blogs">
-                    <div class="existing-blogs" style="display: flex; justify-content: space-between;">
-                        <h6>Existing Blogs</h6> 
-                        <a href=""><i class="fa-solid fa-pen" style=""></i></a>
-
+    <form action="profile.php?id=<?php echo $id ?>" method="POST">
+        <div class="container-fluid main">
+            <div class="row">
+                <div class="col-lg-8 shadow p-3 mb-5 bg-body rounded ">
+                    <div class="profile-image" style="display: flex; ">
+                        <img src="/images/download.jpeg" height="140px" width="140px" style="border-radius: 50%;" alt="">
+                        <a href="" ><i class="fa-solid fa-pen" style="margin-top: 120px;"></i></a>  
                     </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, iusto!</p>
-                </div>           
-            </div>
-            <div class="contact col-lg-6">
-                <button id="slide-button" class="btn btn-primary" style="background-color: #3D1383; float: right;">ContactUs</button>
-                    <div id="slide-up-content" >
-                        
-                            <h4 style="text-align: center;"><b>Contactus!!</b></h4>
-                            <label for="message" class="label"></label>
-                            <input type="text" placeholder="Enter your message" name="email" class="form-control" style=" width: 80%; height: 50%;">
-                            <button class="btn btn-primary" style="background-color: #9E8605; margin-left: 50%; margin-top: 15px;">Send</button>
-                        </div>
+                    <h3 style="margin-top: 20px;"><?php echo "$username_user"?></h3>
+                    <h5 style="margin-top: 20px;">BIO</h5>
+                    <div class="bio">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere similique expedita aperiam vero odio consequatur provident quis tenetur laborum dolorum.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="skills">
+                        <h5 style="text-align: center;">SKILLS</h5>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga debitis corrupti nostrum animi minus eos nam aspernatur eius consequatur temporibus?</p>
+                        <i class="fa-solid fa-pen" style="float: right; "></i>
+                    </div>
+                    <hr>
+                    <div class="languages">
+                        <h5 style="text-align: center;">Languages/Frameworks</h5>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore iure sed sapiente. Eligendi, nisi qui eveniet provident quos est illo.</p>
+                        <a href=""><i class="fa-solid fa-pen" style="float: right;"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    
+        <div class="inputs">
+            <div class="row">
+                <div class="blogs col-lg-6">
+                    <div class="header-blogs">
+                        <h5>Blogs</h5>
+                        <button class="btn btn-primary" style="margin-left: 80%; margin-top: 4px; background-color: #9E8605;">POST</button>
+                    </div>
+                    
+                    <div class="body-blogs">
+                        <div class="existing-blogs" style="display: flex; justify-content: space-between;">
+                            <h6>Existing Blogs</h6> 
+                            <a href=""><i class="fa-solid fa-pen" style=""></i></a>
+
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, iusto!</p>
+                    </div>           
+                </div>
+                <div class="contact col-lg-6">
+                    <button id="slide-button" class="btn btn-primary" style="background-color: #3D1383; float: right;">ContactUs</button>
+                        <div id="slide-up-content" >
+                            
+                                <h4 style="text-align: center;"><b>Contactus!!</b></h4>
+                                <label for="message" class="label"></label>
+                                <input type="text" placeholder="Enter your message" name="email" class="form-control" style=" width: 80%; height: 50%;">
+                                <button class="btn btn-primary" style="background-color: #9E8605; margin-left: 50%; margin-top: 15px;">Send</button>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </form>
     
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
