@@ -1,3 +1,9 @@
+<?php
+    include('connection.php');
+?>
+<?php
+    include('login_conn.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -174,7 +180,7 @@
 </head>
 <body>
     
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container-fluid nav">
             <a class="navbar-brand" href="#">
                 <img src="images/Screenshot (192).png" alt="" width="40" height="30" class="d-inline-block align-text-top">
@@ -221,27 +227,31 @@
         <img src="" alt="">
     </div>
     <!-- munga-->
-    <div class="wrapper login">
-        <div class="container">
-            <div class="col-left">
-                <div class="login-text">
-                    <h2>Welcome!</h2>
-                    <p>Create your account.<br>For Free!</p> <a href="" class="btn">Sign Up</a>
+    <form action="login.php" method="POST">
+        <div class="wrapper login">
+            <div class="container">
+                <div class="col-left">
+                    <div class="login-text">
+                        <h2>Welcome!</h2>
+                        <p>Create your account.<br>For Free!</p> <a href="" class="btn">Sign Up</a>
+                    </div>
+                </div>
+                <div class="col-right">
+                    <div class="login-form">
+                        <h2>Login</h2>
+                        <form action="">
+                            <p> <label>Username/Email address<span>*</span></label>
+                                <input type="text" placeholder=" Email" name="email" required> </p>
+                            <p> <label>Password<span>*</span></label>
+                                <input type="password" placeholder="Password" name="password" required> </p>
+                            <p> <input type="submit" name= "submit" value="Sign In"> </p>
+                            <p> <a href="">Forgot password?</a> </p>
+                        </form>
+                    </div>
                 </div>
             </div>
-            <div class="col-right">
-                <div class="login-form">
-                    <h2>Login</h2>
-                    <form action="">
-                        <p> <label>Username/Email address<span>*</span></label> <input type="text" placeholder="Username or Email" required> </p>
-                        <p> <label>Password<span>*</span></label> <input type="password" placeholder="Password" required> </p>
-                        <p> <input type="submit" value="Sign In"> </p>
-                        <p> <a href="">Forgot password?</a> </p>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>      
+        </div> 
+    </form>         
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>
