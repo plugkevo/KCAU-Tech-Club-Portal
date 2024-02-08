@@ -45,12 +45,31 @@
         }
         .details{
             margin-left: 10px;
+            padding-left: 30px;
+            float: right;
+        }
+        .details h2{
+            padding-top: 10px;
         }
         .upcoming-events-1{
-            background-color: #f0f0f0;
+            background-color: #e3e2e7;
             border-radius: 0.4cm;
+            width: 100%;
+            height: 350px;
         }
-
+        .my-button {
+            background-color: #9E8605;
+            color: black;
+            border: none;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 25px;
+        }
 
     </style>
 </head>
@@ -91,7 +110,7 @@
                             <a class="nav-link" href="sign_up.php">Sign Up</a>
                         </li>
                         <li class="nav-item" >
-                            <a href="profile.php"><img src="images/download 4.jpeg" name="profile_img" style="height: 30px; width: 30px; border-radius: 50%;" alt=""></a>
+                            <a href="profile.html"><img src="images/download 4.jpeg" name="profile_img" style="height: 30px; width: 30px; border-radius: 50%;" alt=""></a>
                         </li>
                     </ul>
                 </div>              
@@ -138,30 +157,36 @@
 
     <div class="headerr"></div>
     <br>
+    <div class="upcoming-events-1" style="display: flex;">
+        <img src="/images/event 4.jpg" alt="" style="height: 300px; width: 600px; padding-top: 10px; padding-left: 10px;">
+        <div class="details">
+            <h2>Trivia Night</h2><br>
+            
+            <h6>📅 Date: 19th February</h6>
+            <h6>🕒 Time: 2pm</h6>
+            <h6>📍 Location: KCA University Main campus Ruaraka, Students Center</h6><br><br><br>
 
-    <div class="row">
-        <div class="col-lg-6">
-            <div class="upcoming-events-1" style="display: flex;">
-                <img src="/images/event 4.jpg" alt="" style="height: 200px; width: 400px;">
-                <div class="details">
-                    <h4>Trivia Night</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione esse, quasi fugit rem possimus earum non facilis? Explicabo, ipsam dicta repudiandae nisi quo nam, voluptatibus, eum aliquid recusandae et officiis?</p>
-                </div>    
-                                 
-            </div>
+            <button type="button" class="my-button">More Info</button>
+            <button type="button" class="my-button">But Ticket</button>
+        </div>              
+    </div>
+    <br><br><br>   
+        
+    <div class="upcoming-events-1" style="display: flex;">
+        <img src="/images/event 4.jpg" alt="" style="height: 300px; width: 600px; padding-top: 10px; padding-left: 10px; display: flex;">
+        <div class="details">
+            <h2>Code Fest</h2><br>
+            
+            <h6>📅 Date: Tomorrow 9th February</h6>
+            <h6>🕒 Time: 2pm</h6>
+            <h6>📍 Location: KCA University Main campus Ruaraka, Block C</h6><br><br><br>
+            
+            <button type="button" class="my-button">More Info</button>
+            <button type="button" class="my-button">But Ticket</button>
         </div>    
-        <div class="col-lg-6">
-            <div class="upcoming-events-1" style="display: flex;">
-                <img src="/images/event 4.jpg" alt="" style="height: 200px; width: 400px;">
-                <div class="details">
-                    <h4>Trivia Night</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione esse, quasi fugit rem possimus earum non facilis? Explicabo, ipsam dicta repudiandae nisi quo nam, voluptatibus, eum aliquid recusandae et officiis?</p>
-                </div>    
-                    
-         </div>
-        </div>    
-    </div>  
-    </div><br>
+    </div> 
+    
+    
     <div class="upcoming-events" style="margin-left: 15px;">
         <h3>Past Events</h3>
     </div>
