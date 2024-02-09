@@ -40,10 +40,10 @@ $conn->close();
     <style>
         body{
             background-color: #f4f2ee;
-            margin-left: 10px;
+            
         }
         .container-fluid.main{
-            margin-top: 8%;
+            margin-top: 60px;
         }
         .bio{
             width: 60%;
@@ -97,7 +97,7 @@ $conn->close();
         }
     </style>
 </head>
-<body>
+<body style="margin-left: 30px;">
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container-fluid nav">
             <a class="navbar-brand" href="#">
@@ -152,20 +152,20 @@ $conn->close();
                     <h3 style="margin-top: 20px;"><?php echo "$username"?></h3>
                     <h5 style="margin-top: 20px;">BIO</h5>
                     <div class="bio">
-                        <p></p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt veniam quasi libero vel ducimus perspiciatis.</p>
                     </div>
                 </div>
                 <div class="col-lg-3">
-                    <div class="skills">
+                    <div class="skills" style="height:50%;">
                         <h5 style="text-align: center;">SKILLS</h5>
                         <p><?php echo "$skills"?></p>
-                        <a href=""><i class="fa-solid fa-pen" style="float: right; "></i></a>
+                        <a href='edit_skills.php?user_id=$user_id' ><i class="fa-solid fa-pen" style="float: right;"></i></a>
                     </div>
                     <hr>
                     <div class="languages">
                         <h5 style="text-align: center;">Languages/Frameworks</h5>
                         <p><?php echo "$languages"?></p>
-                        <a href=""><i class="fa-solid fa-pen" style="float: right;"></i></a>
+                        <a href='edit_languages.php?user_id=$user_id' ><i class="fa-solid fa-pen" style="float: right;"></i></a>
                     </div>
                 </div>
             </div>

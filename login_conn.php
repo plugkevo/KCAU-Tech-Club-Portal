@@ -20,7 +20,7 @@ if(isset ($_POST['submit'])) {
   
     if ($result->num_rows == 1) {
         $_SESSION['email'] = $email; 
-        $_SESSION['expire_time'] = time() + (10 * 60); // Set session expiration time to 20 minutes from now
+        $_SESSION['expire_time'] = time() + (30 * 60); // Set session expiration time to 20 minutes from now
 
         // Get the user ID from the database based on the email address
         $sql = "SELECT no FROM user_credentials WHERE email='$email'";

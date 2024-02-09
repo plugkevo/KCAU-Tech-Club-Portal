@@ -1,30 +1,26 @@
 <?php
- $server="localhost";
- $username="root";
- $password="";
- $database="zalego";
-
- $conn=mysqli_connect($server,$username,$password,$database);
 
 
+//updating records
 if(isset($_POST['updateRecords']))
         {
             // fetch data
-            $fullname = $_POST['fullname'];
-            $phonenumber = $_POST['phonenumber'];
-            $email= $_POST['email'];
-            $gender= $_POST['gender'];
-            $course = $_POST['course'];
+            $skills = $_POST['skills'];
+            
+            // create a prepared statement
+            $stmt = $conn->prepare("UPDATE user_credentials set skills =? WHERE no=?");
+            
+            // bind the variables
+            $stmt->bind_param("si", $skills, $user_id);
+            
+            // execute the prepared statement
+            $success = $stmt->execute();
 
-            // perform the sql query
-            $updateRecords = mysqli_query($conn, "UPDATE user_credentials set skills ='$skills'
-            WHERE no='".$_GET['id']."'");
-
-            if($updateRecords){
-                $message="Records updated successfully";
+            if($success){
+                $message="Records updated successfully!";
             }
             else{
-                $message="Error occured";
+                $message="Error updating records!";
             }
         }
 ?>

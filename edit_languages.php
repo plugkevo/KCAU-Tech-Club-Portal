@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $reponse="";
+    $reponse = "";
     if (!isset($_SESSION['email']) || !isset($_SESSION['expire_time']) || time() > $_SESSION['expire_time']) {
     // User is not logged in or session has expired, redirect to the login page
     header("Location: edit_skills.php");
@@ -12,36 +12,36 @@
 
     // Retrieve the username from the database based on the user ID
     require_once('connection.php');
-    $query = "SELECT skills FROM user_credentials WHERE no = ?";
+    $query = "SELECT languages FROM user_credentials WHERE no = ?";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("i", $user_id);
     $stmt->execute();
     $result = $stmt->get_result();
     $row = $result->fetch_assoc();
 
-    $skills = $row['skills'];
+    $languages = $row['languages'];
 
 
     //updating records
     if(isset($_POST['updateRecords']))
             {
                 // fetch data
-                $skills = $_POST['skills'];
+                $languages = $_POST['languages'];
                 
                 // create a prepared statement
-                $stmt = $conn->prepare("UPDATE user_credentials set skills =? WHERE no=?");
+                $stmt = $conn->prepare("UPDATE user_credentials set languages =? WHERE no=?");
                 
                 // bind the variables
-                $stmt->bind_param("si", $skills, $user_id);
+                $stmt->bind_param("si", $languages, $user_id);
                 
                 // execute the prepared statement
                 $success = $stmt->execute();
 
                 if($success){
-                    $response="Records updated successfully!";
+                    $reponse="Records updated successfully!";
                 }
                 else{
-                    $response="Error updating records!";
+                    $reponse="Error updating records!";
                 }
             }
 
@@ -109,9 +109,6 @@
     </style>
 </head>
 <body>
-    <div class="response">
-        <i><?php echo $reponse?></i>
-    </div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container-fluid nav">
             <a class="navbar-brand" href="#">
@@ -155,12 +152,15 @@
             </div>
         </div>
     </nav>
-    <form action="edit_skills.php?user_id=$user_id" method="post">
+    <div class="response">
+        <i><?php echo $reponse?></i>
+    </div>
+    <form action="edit_languages.php?user_id=$user_id" method="post">
         <div class="container">
             <div class="content">
-                <h3>Update your Skills!!</h3>
-                <label for="skills">Skills</label>
-                <input type="text" class="form-control" value="<?php echo "$skills"?>" name="skills">
+                <h3>Update your Languages/Frameworks!!</h3>
+                <label for="skills">Languages/Frameworks</label>
+                <input type="text" class="form-control" value="<?php echo "$languages"?>" name="languages">
 
                 <button class="btn btn-primary" name="updateRecords" style="background-color: #9E8605; margin-top: 10px;">Update </button>
 
