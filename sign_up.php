@@ -126,6 +126,9 @@
                 <label for="confirm_password" class="label">Confirm Password</label>
                 <input type="password" name="confirm_password" class="form-control" placeholder="Re-enter your password" style=" width: 80%;">
 
+                <input type="text" hidden name="skills">
+                <input type="text" hidden name="languages">
+
                 <button class="btn btn-primary" name="submit" style="background-color: #9E8605;">SIGNUP</button>
             </div>
         </div>

@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 
@@ -21,22 +20,39 @@ if(isset ($_POST['submit'])) {
   
     if ($result->num_rows == 1) {
         $_SESSION['email'] = $email; 
-        $_SESSION['expire_time'] = time() + (2 * 60); // Set session expiration time to 20 minutes from now
+        $_SESSION['expire_time'] = time() + (10 * 60); // Set session expiration time to 20 minutes from now
+
+        // Get the user ID from the database based on the email address
+        $sql = "SELECT no FROM user_credentials WHERE email='$email'";
+        $result = $conn->query($sql);
+        $user_id = $result->fetch_assoc()['no'];
+
+        // Store the user ID in the session
+        $_SESSION['user_id'] = $user_id;
 
       // The username and password are correct, so log the user in
-    
       header("Location: index.php");
     } else {
       // The username and password are incorrect, so display an error message
       $error = "Invalid username or password";
     }
   }
-  
 
 
+
+// Function to retrieve the username from the database based on the user ID
+function get_username_by_id($user_id) {
+    global $conn;
+    $sql = "SELECT username FROM user_credentials WHERE no=$user_id";
+    $result = $conn->query($sql);
+    $row = $result->fetch_assoc();
+    return $row['username'];
+}
+
+// Example usage:
+if (isset($_SESSION['user_id'])) {
+    $username = get_username_by_id($_SESSION['user_id']);
+    echo "Welcome, $username!";
+}
 
 ?>
-
-
-
-

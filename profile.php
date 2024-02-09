@@ -1,13 +1,33 @@
 <?php
-    include('connection.php');
+session_start();
 
-    $queryrecord=mysqli_query($conn,"SELECT * FROM user_credentials WHERE no='".$_GET['id']."' ");
-    while($fetchrecord = mysqli_fetch_array($queryrecord))
-    {
-        $id = $fetchrecord['no'];
-        $username_user = $fetchrecord['username'];
-              
-    }
+if (!isset($_SESSION['email']) || !isset($_SESSION['expire_time']) || time() > $_SESSION['expire_time']) {
+  // User is not logged in or session has expired, redirect to the login page
+  header("Location: login.php");
+  exit();
+}
+
+// Get the user ID from the session
+$user_id = $_SESSION['user_id'];
+
+// Retrieve the username from the database based on the user ID
+require_once('connection.php');
+$query = "SELECT username,skills,languages FROM user_credentials WHERE no = ?";
+$stmt = $conn->prepare($query);
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
+$row = $result->fetch_assoc();
+$username = $row['username'];
+$skills = $row['skills'];
+$languages= $row['languages'];
+
+// Display the username
+echo "Welcome, $username!";
+
+// Close the statement and connection
+$stmt->close();
+$conn->close();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -121,7 +141,7 @@
             </div>
         </div>
     </nav>
-    <form action="profile.php?id=<?php echo $id ?>" method="POST">
+    
         <div class="container-fluid main">
             <div class="row">
                 <div class="col-lg-8 shadow p-3 mb-5 bg-body rounded ">
@@ -129,22 +149,22 @@
                         <img src="/images/download.jpeg" height="140px" width="140px" style="border-radius: 50%;" alt="">
                         <a href="" ><i class="fa-solid fa-pen" style="margin-top: 120px;"></i></a>  
                     </div>
-                    <h3 style="margin-top: 20px;"><?php echo "$username_user"?></h3>
+                    <h3 style="margin-top: 20px;"><?php echo "$username"?></h3>
                     <h5 style="margin-top: 20px;">BIO</h5>
                     <div class="bio">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere similique expedita aperiam vero odio consequatur provident quis tenetur laborum dolorum.</p>
+                        <p></p>
                     </div>
                 </div>
                 <div class="col-lg-3">
                     <div class="skills">
                         <h5 style="text-align: center;">SKILLS</h5>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga debitis corrupti nostrum animi minus eos nam aspernatur eius consequatur temporibus?</p>
-                        <i class="fa-solid fa-pen" style="float: right; "></i>
+                        <p><?php echo "$skills"?></p>
+                        <a href=""><i class="fa-solid fa-pen" style="float: right; "></i></a>
                     </div>
                     <hr>
                     <div class="languages">
                         <h5 style="text-align: center;">Languages/Frameworks</h5>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore iure sed sapiente. Eligendi, nisi qui eveniet provident quos est illo.</p>
+                        <p><?php echo "$languages"?></p>
                         <a href=""><i class="fa-solid fa-pen" style="float: right;"></i></a>
                     </div>
                 </div>
