@@ -22,6 +22,17 @@ $username = $row['username'];
 $skills = $row['skills'];
 $languages= $row['languages'];
 
+// Retrieve the blogs for the user
+require_once('connection.php');
+$query = "SELECT blogs FROM blogs_table WHERE username = ?";
+$stmt = $conn->prepare($query);
+$stmt->bind_param("s", $username);
+$stmt->execute();
+$result = $stmt->get_result();
+
+
+
+
 
 
 
@@ -94,6 +105,10 @@ $conn->close();
         /* Add this new rule to collapse the div when clicking outside */
         #slide-up-content:not(:focus-within) {
         transform: translateY(100%); /* Hide the div when not focused */
+        }
+        .existing-blogs-content{
+            display: flex;
+            
         }
     </style>
 </head>
@@ -181,10 +196,19 @@ $conn->close();
                     <div class="body-blogs">
                         <div class="existing-blogs" style="display: flex; justify-content: space-between;">
                             <h6>Existing Blogs</h6> 
-                            <a href=""><i class="fa-solid fa-pen" style=""></i></a>
-
+                            
                         </div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, iusto!</p>
+                            <?php // Display the blogs
+                                // Display each blog in a separate division
+                                while ($row = $result->fetch_assoc()) {
+                                    echo "<div class='existing-blogs-content'>";
+                                    echo "<p>" . htmlspecialchars($row['blogs']) . "</p>";
+                                    echo "<div class='icon'><a href='edit_blog.php?blog=" . urlencode($row['blogs']) . "'><i class='fas fa-pen'></i></a></div>";
+                                    echo "</div>";
+                                }
+                            ?>
+                        
+                        
                     </div>           
                 </div>
                 <div class="contact col-lg-6">

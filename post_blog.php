@@ -27,6 +27,8 @@ if(isset($_POST['submit']))
             {
                 // fetch data
                 $blogs = $_POST['blogs'];
+                // Escape any special characters in the blog content
+                $escaped_blogs = $conn->real_escape_string($blogs);
                 
                 // create a prepared statement
                 $insertdata = mysqli_query($conn, "INSERT INTO blogs_table (username ,blogs) VALUES('$username' , '$blogs')");
