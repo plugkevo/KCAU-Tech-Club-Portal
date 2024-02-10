@@ -22,8 +22,8 @@ $username = $row['username'];
 $skills = $row['skills'];
 $languages= $row['languages'];
 
-// Display the username
-echo "Welcome, $username!";
+
+
 
 // Close the statement and connection
 $stmt->close();
@@ -175,7 +175,7 @@ $conn->close();
                 <div class="blogs col-lg-6">
                     <div class="header-blogs">
                         <h5>Blogs</h5>
-                        <button class="btn btn-primary" style="margin-left: 80%; margin-top: 4px; background-color: #9E8605;">POST</button>
+                        <a href="post_blog.php"><button class="btn btn-primary" style="margin-left: 80%; margin-top: 4px; background-color: #9E8605;">POST</button></a>
                     </div>
                     
                     <div class="body-blogs">

@@ -1,53 +1,49 @@
 <?php
-    session_start();
-    $reponse = "";
-    if (!isset($_SESSION['email']) || !isset($_SESSION['expire_time']) || time() > $_SESSION['expire_time']) {
-    // User is not logged in or session has expired, redirect to the login page
-    header("Location: edit_skills.php");
-    exit();
-    }
+session_start();
+$reponse="";
+if (!isset($_SESSION['email']) || !isset($_SESSION['expire_time']) || time() > $_SESSION['expire_time']) {
+  // User is not logged in or session has expired, redirect to the login page
+  header("Location: login.php");
+  exit();
+}
 
-    // Get the user ID from the session
-    $user_id = $_SESSION['user_id'];
+// Get the user ID from the session
+$user_id = $_SESSION['user_id'];
 
-    // Retrieve the username from the database based on the user ID
-    require_once('connection.php');
-    $query = "SELECT skills FROM user_credentials WHERE no = ?";
-    $stmt = $conn->prepare($query);
-    $stmt->bind_param("i", $user_id);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $row = $result->fetch_assoc();
+// Retrieve the username from the database based on the user ID
+require_once('connection.php');
+$query = "SELECT username FROM user_credentials WHERE no = ?";
+$stmt = $conn->prepare($query);
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
+$row = $result->fetch_assoc();
+$username = $row['username'];
 
-    $skills = $row['skills'];
 
 
-    //updating records
-    if(isset($_POST['updateRecords']))
+
+if(isset($_POST['submit']))
             {
                 // fetch data
-                $skills = $_POST['skills'];
+                $blogs = $_POST['blogs'];
                 
                 // create a prepared statement
-                $stmt = $conn->prepare("UPDATE user_credentials set skills =? WHERE no=?");
+                $insertdata = mysqli_query($conn, "INSERT INTO blogs_table (username ,blogs) VALUES('$username' , '$blogs')");
                 
-                // bind the variables
-                $stmt->bind_param("si", $skills, $user_id);
                 
-                // execute the prepared statement
-                $success = $stmt->execute();
-
-                if($success){
-                    $response="Records updated successfully!";
+                if($insertdata){
+                    $reponse="Records updated successfully!";
                 }
                 else{
-                    $response="Error updating records!";
+                    $reponse="Error updating records!";
                 }
             }
 
-    // Close the statement and connection
-    $stmt->close();
-    $conn->close();
+
+// Close the statement and connection
+$stmt->close();
+$conn->close();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -109,9 +105,6 @@
     </style>
 </head>
 <body>
-    <div class="response">
-        <i><?php echo $reponse?></i>
-    </div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container-fluid nav">
             <a class="navbar-brand" href="#">
@@ -155,14 +148,17 @@
             </div>
         </div>
     </nav>
-    <form action="edit_skills.php?user_id=$user_id" method="post">
+    <div class="response">
+        <i><?php echo $reponse?></i>
+    </div>
+    <form action="post_blog.php?user_id=$user_id" method="post">
         <div class="container">
             <div class="content">
-                <h3>Update your Skills!!</h3>
-                <label for="skills">Skills</label>
-                <input type="text" class="form-control" value="<?php echo "$skills"?>" name="skills">
+                <h3>Post Blog</h3>
+                <label for="skills"></label>
+                <input type="text" class="form-control"  name="blogs">
 
-                <button class="btn btn-primary" name="updateRecords" style="background-color: #9E8605; margin-top: 10px;">Update </button>
+                <button class="btn btn-primary" name="submit" style="background-color: #9E8605; margin-top: 10px;">Submit</button>
 
             </div>
         </div>
