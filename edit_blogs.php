@@ -1,10 +1,10 @@
 <?php
 session_start();
-$reponse="";
+$reponse = "";
 if (!isset($_SESSION['email']) || !isset($_SESSION['expire_time']) || time() > $_SESSION['expire_time']) {
-  // User is not logged in or session has expired, redirect to the login page
-  header("Location: login.php");
-  exit();
+    // User is not logged in or session has expired, redirect to the login page
+    header("Location: edit_blogs.php");
+    exit();
 }
 
 // Get the user ID from the session
@@ -12,35 +12,39 @@ $user_id = $_SESSION['user_id'];
 
 // Retrieve the username from the database based on the user ID
 require_once('connection.php');
-$query = "SELECT username FROM user_credentials WHERE no = ?";
+$query = "SELECT blog_id, blogs FROM blogs_table WHERE username=?";
 $stmt = $conn->prepare($query);
 $stmt->bind_param("i", $user_id);
 $stmt->execute();
 $result = $stmt->get_result();
-$row = $result->fetch_assoc();
-$username = $row['username'];
 
-
-
-if(isset($_POST['submit']))
-{
-    // fetch data
-    $blogs = $_POST['blogs'];
-    // Escape any special characters in the blog content
-    $escaped_blogs = $conn->real_escape_string($blogs);
-    
-    // create a prepared statement
-    $insertdata = $conn->prepare("INSERT INTO blogs_table (username ,blogs) VALUES(?, ?)");
-    $insertdata->bind_param("ss", $username, $escaped_blogs);
-    
-    if($insertdata->execute()){
-        $reponse="Records updated successfully!";
-    }
-    else{
-        $reponse="Error updating records!";
-    }
+$blogs = [];
+while ($row = $result->fetch_assoc()) {
+    $blogs[] = $row;
 }
 
+//updating records
+if(isset($_POST['updateRecords']))
+            {
+                // fetch data
+                $blogs = $_POST['blogs'];
+
+                // create a prepared statement
+                $stmt = $conn->prepare("UPDATE blogs set blogs =? WHERE blog_id=1");
+
+                // bind the variables
+                $stmt->bind_param("si", $blogs, $user_id);
+
+                // execute the prepared statement
+                $success = $stmt->execute();
+
+                if($success){
+                    $reponse="Records updated successfully!";
+                }
+                else{
+                    $reponse="Error updating records!";
+                }
+            }
 
 // Close the statement and connection
 $stmt->close();
@@ -106,7 +110,7 @@ $conn->close();
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <!--<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container-fluid nav">
             <a class="navbar-brand" href="#">
                 <img src="images/Screenshot (192).png" alt="" width="40" height="30" class="d-inline-block align-text-top">
@@ -148,18 +152,17 @@ $conn->close();
                 </div>              
             </div>
         </div>
-    </nav>
+    </nav>-->
     <div class="response">
         <i><?php echo $reponse?></i>
     </div>
-    <form action="post_blog.php?user_id=$user_id" method="post">
+    <form action="edit_languages.php?user_id=$user_id" method="post">
         <div class="container">
             <div class="content">
-                <h3>Post Blog</h3>
-                <label for="skills"></label>
-                <input type="text" class="form-control"  name="blogs">
-
-                <button class="btn btn-primary" name="submit" style="background-color: #9E8605; margin-top: 10px;">Submit</button>
+                <h3>Update your blogs</h3>
+                <label for="skills">Blogs</label>
+                <input type="text" class="form-control" value="<?php echo "$blogs"?>" name="blogs">
+                <button class="btn btn-primary" name="updateRecords" style="background-color: #9E8605; margin-top: 10px;">Update </button>
 
             </div>
         </div>
@@ -167,4 +170,4 @@ $conn->close();
     
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
-</html>
+</html> 

@@ -22,18 +22,13 @@ $username = $row['username'];
 $skills = $row['skills'];
 $languages= $row['languages'];
 
-// Retrieve the blogs for the user
-require_once('connection.php');
-$query = "SELECT blogs FROM blogs_table WHERE username = ?";
-$stmt = $conn->prepare($query);
-$stmt->bind_param("s", $username);
-$stmt->execute();
-$result = $stmt->get_result();
-
-
-
-
-
+    // Retrieve the blogs for the user
+    // Retrieve the blogs for the user
+    $query = "SELECT blog_id, blogs FROM blogs_table WHERE username = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
 
 // Close the statement and connection
@@ -187,7 +182,7 @@ $conn->close();
         </div>
         <div class="inputs">
             <div class="row">
-                <div class="blogs col-lg-6">
+                <div class="blogs col-lg-9">
                     <div class="header-blogs">
                         <h5>Blogs</h5>
                         <a href="post_blog.php"><button class="btn btn-primary" style="margin-left: 80%; margin-top: 4px; background-color: #9E8605;">POST</button></a>
@@ -198,20 +193,44 @@ $conn->close();
                             <h6>Existing Blogs</h6> 
                             
                         </div>
-                            <?php // Display the blogs
-                                // Display each blog in a separate division
-                                while ($row = $result->fetch_assoc()) {
-                                    echo "<div class='existing-blogs-content'>";
-                                    echo "<p>" . htmlspecialchars($row['blogs']) . "</p>";
-                                    echo "<div class='icon'><a href='edit_blog.php?blog=" . urlencode($row['blogs']) . "'><i class='fas fa-pen'></i></a></div>";
-                                    echo "</div>";
-                                }
-                            ?>
+                           
+                            <table class="table table-striped table-hover table-responsive"  >
+                <thead>
+                    <tr>
+                        <th scope="col">no.</th>
+                        <th scope="col">Action</th>
+
+      
+                    </tr>
+                </thead>
+                <tbody>
+                     <?php while ($row = $result->fetch_assoc()) { ?>
+                        <tr>
+                        
+                        <td><?php echo htmlspecialchars($row['blogs']) ?></td>
+                       
+                        <td>
+                            <a href="edit_blogs.php?blog_id=<?php echo htmlspecialchars($row['blog_id']) ?>" class="btn btn-primary btn-sm">
+                            <i class="fa fa-edit"></i>
+                            </a>
+                            
+                            <a href="delete_blog.php?blog_id=<?php echo htmlspecialchars($row['blog_id']) ?>" class="btn btn-danger btn-sm">
+                            <i class="fa fa-trash"></i> 
+                                
+                            </a>
+                        </td>
+      
+
+                    </tr>
+                   
+                     <?php  }?>
+                </tbody>
+            </table>   
                         
                         
                     </div>           
                 </div>
-                <div class="contact col-lg-6">
+                <div class="contact col-lg-3">
                     <button id="slide-button" class="btn btn-primary" style="background-color: #3D1383; float: right;">ContactUs</button>
                         <div id="slide-up-content" >
                             
