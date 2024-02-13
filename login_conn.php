@@ -26,7 +26,6 @@ if(isset ($_POST['submit'])) {
         $sql = "SELECT no FROM user_credentials WHERE email='$email'";
         $result = $conn->query($sql);
         $user_id = $result->fetch_assoc()['no'];
-
         // Store the user ID in the session
         $_SESSION['user_id'] = $user_id;
 

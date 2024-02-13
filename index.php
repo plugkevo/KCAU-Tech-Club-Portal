@@ -27,9 +27,9 @@
             background-position: right;
             background-color: #3D1383;
             animation: change-background 10s infinite; } @keyframes change-background { 0% { 
-            background-image: url('/images/christopher-burns-Kj2SaNHG-hg-unsplash.jpg'); }
-            33% {background-image: url('/images/luca-bravo-XJXWbfSo2f0-unsplash.jpg');} 
-            66% {background-image: url('/images/robs-HOrhCnQsxnQ-unsplash.jpg');}
+            background-image: url('images/christopher-burns-Kj2SaNHG-hg-unsplash.jpg'); }
+            33% {background-image: url('images/luca-bravo-XJXWbfSo2f0-unsplash.jpg');} 
+            66% {background-image: url('images/robs-HOrhCnQsxnQ-unsplash.jpg');}
             100% {background-image: url('images/adi-goldstein-EUsVwEOsblE-unsplash.jpg');}
         }
         .title{
