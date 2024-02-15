@@ -110,7 +110,7 @@
 </head>
 <body>
     <div class="response">
-        <i><?php echo $reponse?></i>
+        <i><?php echo $response?></i>
     </div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container-fluid nav">

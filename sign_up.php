@@ -115,16 +115,16 @@
             <div class="credentials" >
                 <h3>SIGN UP</h3>
                 <label for="email" class="label">Email</label>
-                <input type="text" placeholder="Enter your school email" name="email" class="form-control" style=" width: 80%;">
+                <input type="text" placeholder="Enter your school email" name="email" required  class="form-control" style=" width: 80%;">
 
                 <label for="username" class="label">Username</label>
-                <input type="text" name="username" id="" placeholder="Enter a username" class="form-control" style=" width: 80%;">
+                <input type="text" name="username" id="" placeholder="Enter a username" required class="form-control" style=" width: 80%;">
 
                 <label for="password" class="label">Password</label>
-                <input type="password" name="password" id="" placeholder="Enter a strong password" class="form-control" style=" width: 80%;">
+                <input type="password" name="password" id="" placeholder="Enter a strong password" required class="form-control" style=" width: 80%;">
 
                 <label for="confirm_password" class="label">Confirm Password</label>
-                <input type="password" name="confirm_password" class="form-control" placeholder="Re-enter your password" style=" width: 80%;">
+                <input type="password" name="confirm_password" class="form-control" placeholder="Re-enter your password" required style=" width: 80%;">
 
                 <input type="text" hidden name="skills">
                 <input type="text" hidden name="languages">

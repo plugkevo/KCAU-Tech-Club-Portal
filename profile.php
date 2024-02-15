@@ -23,12 +23,8 @@ $skills = $row['skills'];
 $languages= $row['languages'];
 
     // Retrieve the blogs for the user
-    // Retrieve the blogs for the user
-    $query = "SELECT blog_id, blogs FROM blogs_table WHERE username = ?";
-    $stmt = $conn->prepare($query);
-    $stmt->bind_param("s", $username);
-    $stmt->execute();
-    $result = $stmt->get_result();
+    $sql = "SELECT * FROM blogs_table";
+    $result = $conn->query($sql);
 
 
 // Close the statement and connection
@@ -66,6 +62,7 @@ $conn->close();
         }
         .header-blogs{
             display: flex;
+            gap:90%;
         }
         a{
             text-decoration: none;
@@ -151,7 +148,7 @@ $conn->close();
             </div>
         </div>
     </nav>
-    
+    <form action="profile.php" method="POST">
         <div class="container-fluid main">
             <div class="row">
                 <div class="col-lg-8 shadow p-3 mb-5 bg-body rounded ">
@@ -185,7 +182,7 @@ $conn->close();
                 <div class="blogs col-lg-9">
                     <div class="header-blogs">
                         <h5>Blogs</h5>
-                        <a href="post_blog.php"><button class="btn btn-primary" style="margin-left: 80%; margin-top: 4px; background-color: #9E8605;">POST</button></a>
+                        <button class="btn btn-primary" style="background-color: #9E8605;"><a href="post_blog.php">post</a></button>
                     </div>
                     
                     <div class="body-blogs">
@@ -204,17 +201,18 @@ $conn->close();
                     </tr>
                 </thead>
                 <tbody>
-                     <?php while ($row = $result->fetch_assoc()) { ?>
+                    <?php if ($result && $result->num_rows > 0) { ?>
+                        <?php while ($fetchrecord = $result->fetch_assoc()) { ?>
                         <tr>
                         
-                        <td><?php echo htmlspecialchars($row['blogs']) ?></td>
+                        <td><?php  echo $fetchrecord['blogs']?></td>
                        
                         <td>
-                            <a href="edit_blogs.php?blog_id=<?php echo htmlspecialchars($row['blog_id']) ?>" class="btn btn-primary btn-sm">
+                            <a href="edit_blogs.php?id=<?php echo $fetchrecord['blog_id']?>" class="btn btn-primary btn-sm">
                             <i class="fa fa-edit"></i>
                             </a>
                             
-                            <a href="delete_blog.php?blog_id=<?php echo htmlspecialchars($row['blog_id']) ?>" class="btn btn-danger btn-sm">
+                            <a href="" class="btn btn-danger btn-sm">
                             <i class="fa fa-trash"></i> 
                                 
                             </a>
@@ -224,6 +222,8 @@ $conn->close();
                     </tr>
                    
                      <?php  }?>
+                     <?php } ?>
+                    
                 </tbody>
             </table>   
                         
