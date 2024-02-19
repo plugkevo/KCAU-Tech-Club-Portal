@@ -158,7 +158,7 @@
             </div>
         </div>
     </nav>
-    <form action="edit_skills.php?user_id=$user_id" method="post">
+    <form action="edit_profile_pic.php?user_id=$user_id" method="post">
         <div class="container">
             <div class="content">
                 <h3>Update your Profile Pic!!</h3>
@@ -166,7 +166,7 @@
                 <div class="picture" style="margin-top:70px;">
                 <?php echo '<img src="data:' . $imageMimeType . ';base64,' . base64_encode($imageData) . '" style="border-radius: 0; height: 300px; width: 300px;"  alt="Database Image">'; ?>
                 </div>
-                <input type="file" class="form-control" value="" name="profile_pic">
+                <input type="file" class="form-control" value="" name="profile_pic" accept="image/*">
 
                 <button class="btn btn-primary" name="updateRecords" style="background-color: #9E8605; margin-top: 10px;">Update </button>
 
