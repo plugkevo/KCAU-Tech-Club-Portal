@@ -27,7 +27,7 @@ session_start();
       } 
       else {
         // Insert the user's information into the database
-        $insertData=mysqli_query($conn, "INSERT INTO user_credentials (email, username, password, skills, languages) VALUES ('$email', '$username', '$password', '$skills', '$languages')");
+        $insertData=mysqli_query($conn, "INSERT INTO user_credentials (email, username, password, skills, languages, bio,profile_pic) VALUES ('$email', '$username', '$password', '$skills', '$languages', '$bio', '$profile_pic')");
         if ($insertData)
        
          {

@@ -12,7 +12,7 @@ $user_id = $_SESSION['user_id'];
 
 // Retrieve the username from the database based on the user ID
 require_once('connection.php');
-$query = "SELECT username,skills,languages FROM user_credentials WHERE no = ?";
+$query = "SELECT username,skills,languages,bio,profile_pic FROM user_credentials WHERE no = ?";
 $stmt = $conn->prepare($query);
 $stmt->bind_param("i", $user_id);
 $stmt->execute();
@@ -21,10 +21,13 @@ $row = $result->fetch_assoc();
 $username = $row['username'];
 $skills = $row['skills'];
 $languages= $row['languages'];
-
+$bio=$row['bio'];
+$profile_pic=$row['profile_pic'];
     // Retrieve the blogs for the user
     $sql = "SELECT * FROM blogs_table";
     $result = $conn->query($sql);
+    $imageData = $row['profile_pic'];
+    $imageMimeType = 'image/jpeg';
 
 
 // Close the statement and connection
@@ -141,7 +144,8 @@ $conn->close();
                             <a class="nav-link" href="sign_up.php">Sign Up</a>
                         </li>
                         <li class="nav-item" >
-                            <a href="profile.php"><img src="images/download 4.jpeg" name="profile_img" style="height: 30px; width: 30px; border-radius: 50%;" alt=""></a>
+                        <?php echo '<img src="data:' . $imageMimeType . ';base64,' . base64_encode($imageData) . '" style="border-radius: 50%; height: 30px; width: 30px;"  alt="Database Image">'; ?>
+
                         </li>
                     </ul>
                 </div>              
@@ -153,13 +157,15 @@ $conn->close();
             <div class="row">
                 <div class="col-lg-8 shadow p-3 mb-5 bg-body rounded ">
                     <div class="profile-image" style="display: flex; ">
-                        <img src="/images/download.jpeg" height="140px" width="140px" style="border-radius: 50%;" alt="">
-                        <a href="" ><i class="fa-solid fa-pen" style="margin-top: 120px;"></i></a>  
+                    <?php echo '<img src="data:' . $imageMimeType . ';base64,' . base64_encode($imageData) . '" style="border-radius: 50%; height: 200px; width: 200px;"  alt="Database Image">'; ?>
+                        <a href="edit_profile_pic.php?user_id=$user_id" ><i class="fa-solid fa-pen" style="margin-top: 120px;"></i></a>  
                     </div>
                     <h3 style="margin-top: 20px;"><?php echo "$username"?></h3>
                     <h5 style="margin-top: 20px;">BIO</h5>
+                    <a href='edit_bio.php?user_id=$user_id' ><i class="fa-solid fa-pen" style="float: right;"></i></a>
+
                     <div class="bio">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt veniam quasi libero vel ducimus perspiciatis.</p>
+                        <p><?php echo "$bio" ?></p>
                     </div>
                 </div>
                 <div class="col-lg-3">
@@ -212,7 +218,7 @@ $conn->close();
                             <i class="fa fa-edit"></i>
                             </a>
                             
-                            <a href="" class="btn btn-danger btn-sm">
+                            <a href="delete-blog.php?id=<?php echo $fetchrecord['blog_id']?>" class="btn btn-danger btn-sm">
                             <i class="fa fa-trash"></i> 
                                 
                             </a>
