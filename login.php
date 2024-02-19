@@ -242,7 +242,7 @@
                 <div class="col-left">
                     <div class="login-text">
                         <h2>Welcome!</h2>
-                        <p>Create your account.<br>For Free!</p> <a href="" class="btn">Sign Up</a>
+                        <p>Create your account.<br>For Free!</p> <a href="sign_up.php" class="btn">Sign Up</a>
                     </div>
                 </div>
                 <div class="col-right">
