@@ -168,7 +168,7 @@
             background: transparent;
             border: 1px solid #2aa15f;
             border-radius: 30px;
-            box-shadow: inset 0 0 0 0 #2aa15f;
+            box-shadow: inset 0 0 0 0 #9E8605;
             transition: .3s;
         }
         .login .login-form button:hover,

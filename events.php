@@ -233,8 +233,8 @@
             </a>
         </div>  
         <div class="passed-detais">
-           <h3>Code Fest</h3><br>
-           <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta hic quasi consequuntur laudantium aperiam maxime debitis quaerat, harum dolor nulla.</p>
+           <h3>Tech Expo</h3><br>
+           <p>The School of Technology, in partnership with the Innovation, Incubation and Enterprise Development office. The the Theme of the Expo will be "Advancing Technology for Sustainable Development : From Theory to Reality". Unlock the future at our Tech Expo and Hackathon 🚀 Embrace innovation, collaborate with like-minded creators, and push the boundaries of technology. Join us on the journey to shape tomorrow's world today. </p>
         </div>
     </div>
 
