@@ -1,3 +1,49 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['email']) || !isset($_SESSION['expire_time']) || time() > $_SESSION['expire_time']) {
+  // User is not logged in or session has expired, redirect to the login page
+  header("Location: login.php");
+  exit();
+}
+
+// Get the user ID from the session
+$user_id = $_SESSION['user_id'];
+
+// Retrieve the username from the database based on the user ID
+require_once('connection.php');
+
+
+$server = "localhost";
+$username = "root";
+$password = "";
+$database = "kcau_tech_club";
+
+$conn = mysqli_connect($server, $username, $password, $database);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+if (isset($_POST['submit2'])) {
+    // Handle file upload
+    $image = $_FILES['image1']['tmp_name'];
+    $imageData = file_get_contents($image);
+
+    // Prepare and execute an SQL query to insert the image into the database
+    $stmt = $conn->prepare("UPDATE user_credentials SET profile_pic = ? WHERE no = 5");
+    $stmt->bind_param("si", $imageData, $userId);
+
+    if ($stmt->execute()) {
+        echo "Image uploaded successfully!";
+    } else {
+        echo "Error uploading image: " . $stmt->error;
+    }
+
+    $stmt->close();
+}
+
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -32,11 +78,9 @@
     }
   
     .row{
-      display: flex;      
-      gap: 10px;
-      flex-wrap: wrap;
-      margin: 10px;
-      margin-left: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .media{
       text-align: center;
@@ -46,11 +90,12 @@
       background-color: transparent;
       transition: transform 0.5s, background 0.5s;
       height: 310px;
-      width: 320px;  
+      width: 300px;  
       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);   
-      flex: 0 0 24%;
-      padding: 10px;
-      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      align-items: center; 
+      flex-direction: column;
     }
     .media img{
       height: 250px;
@@ -63,47 +108,18 @@
   </style>
 </head>
 <body>
+  
     
-
-      <div class="row">
-      <?php
-// Assuming you have a database connection established
-$dbHost = "localhost";
-$dbUser = "root";
-$dbPassword = "";
-$dbName = "kcau_tech_club";
-
-$conn = mysqli_connect($dbHost, $dbUser, $dbPassword, $dbName);
-
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-
-// Assuming you have a table named 'images' with a column 'image_data' to store the image
-$sql = "SELECT profile_pic FROM user_credentials WHERE no = 3";
-
-$result = mysqli_query($conn, $sql);
-
-if (mysqli_num_rows($result) > 0) {
-    while ($row = mysqli_fetch_assoc($result)) {
-        $imageData = $row['profile_pic'];
-        $imageMimeType = 'image/jpeg'; // Set the appropriate image MIME type
-        echo '<div class="media">';
-        echo '<img src="data:' . $imageMimeType . ';base64,' . base64_encode($imageData) . '" alt="Database Image">';
-        echo '<a href="data:' . $imageMimeType . ';base64,' . base64_encode($imageData) . '" download="my-image.jpg">';
-        echo '<i class="fas fa-download"></i>';
-        echo ' Download</a>';
-        echo '</div>';
-    }
-} else {
-    echo "No image found.";
-}
-
-
-mysqli_close($conn);
-?>
-        
-        
-    
+  <form action="test.php" method="POST" enctype="multipart/form-data">
+        <div class="row">
+            <div class="media">
+                <i class="fa-solid fa-upload fa-2x"></i>
+                <p>Upload photos here</p>
+                <input type="file" name="image1" accept="image/*" required>
+                <button type="submit" name="submit2">Upload</button>
+            </div> 
+        </div>
+    </form>
+     
 </body>
 </html>

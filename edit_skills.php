@@ -91,6 +91,7 @@
             align-items: center; /* Center vertically */
             flex-direction: column;
             opacity: 0.9;
+            margin-top: 5%;
         }
         .response {
             position: fixed;
@@ -104,7 +105,15 @@
             box-shadow: 0 1px 3px rgba(0, 0, 0, .06), 0 1px 2px rgba(0, 0, 0, .04);
             text-align: center;
         }
-       
+        textarea {
+			width: 100%;
+			height: 200px;
+			padding: 10px;
+			font-size: 16px;
+			border: 1px solid #ddd;
+			border-radius: 5px;
+			resize: vertical;
+		}
 
     </style>
 </head>
@@ -158,12 +167,9 @@
     <form action="edit_skills.php?user_id=$user_id" method="post">
         <div class="container">
             <div class="content">
-                <h3>Update your Skills!!</h3>
-                <label for="skills">Skills</label>
-                <input type="text" class="form-control" value="<?php echo "$skills"?>" name="skills">
-
-                <button class="btn btn-primary" name="updateRecords" style="background-color: #9E8605; margin-top: 10px;">Update </button>
-
+            <h3>Update Your Skills!!</h3>
+            <textarea name="skills" id="skills" ><?php echo "$skills"?></textarea>
+            <button class="btn btn-primary" name="updateRecords" style="background-color: #9E8605; margin-top: 10px;">Update </button>
             </div>
         </div>
     </form>    

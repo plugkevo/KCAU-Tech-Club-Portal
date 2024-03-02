@@ -943,7 +943,7 @@
               <a href="#" class="nav-link">SEARCH BLOG</a>
             </li>
             <li>
-              <a href="#" class="nav-link">POST BLOG</a>
+              <a href="post_blog.php" class="nav-link">POST BLOG</a>
             </li>
           </ul>
           <button class="theme-btn theme-btn-desktop light">

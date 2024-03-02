@@ -88,6 +88,7 @@ $conn->close();
             align-items: center; /* Center vertically */
             flex-direction: column;
             opacity: 0.9;
+            margin-top: 5%;
         }
         .response {
             position: fixed;
@@ -101,6 +102,15 @@ $conn->close();
             box-shadow: 0 1px 3px rgba(0, 0, 0, .06), 0 1px 2px rgba(0, 0, 0, .04);
             text-align: center;
         }
+        textarea {
+			width: 100%;
+			height: 200px;
+			padding: 10px;
+			font-size: 16px;
+			border: 1px solid #ddd;
+			border-radius: 5px;
+			resize: vertical;
+		}
        
 
     </style>
@@ -156,11 +166,9 @@ $conn->close();
         <div class="container">
             <div class="content">
                 <h3>Post Blog</h3>
-                <label for="skills"></label>
-                <input type="text" class="form-control"  name="blogs">
-
+                <label for="skills" ></label>
+                <textarea id="message" name="blogs"></textarea>
                 <button class="btn btn-primary" name="submit" style="background-color: #9E8605; margin-top: 10px;">Submit</button>
-
             </div>
         </div>
     </form>    

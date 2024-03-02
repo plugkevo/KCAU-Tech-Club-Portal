@@ -76,6 +76,7 @@ if(isset($_POST['updateRecords']))
             align-items: center; /* Center vertically */
             flex-direction: column;
             opacity: 0.9;
+            margin-top: 5%;
         }
         .response {
             position: fixed;
@@ -89,7 +90,15 @@ if(isset($_POST['updateRecords']))
             box-shadow: 0 1px 3px rgba(0, 0, 0, .06), 0 1px 2px rgba(0, 0, 0, .04);
             text-align: center;
         }
-       
+        textarea {
+			width: 100%;
+			height: 200px;
+			padding: 10px;
+			font-size: 16px;
+			border: 1px solid #ddd;
+			border-radius: 5px;
+			resize: vertical;
+		}
 
     </style>
 </head>
@@ -144,8 +153,8 @@ if(isset($_POST['updateRecords']))
         <div class="container">
             <div class="content">
                 <h3>Update your blogs</h3>
-                <label for="skills">Blogs</label>
-                <input type="text" class="form-control" value="<?php echo htmlspecialchars($blogs); ?>" name="blogs">
+                
+                <textarea name="blogs" id="blogs"><?php echo htmlspecialchars($blogs); ?></textarea>
                 <button class="btn btn-primary" name="updateRecords" style="background-color: #9E8605; margin-top: 10px;">Update </button>
 
             </div>
