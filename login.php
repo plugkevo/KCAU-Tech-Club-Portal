@@ -174,7 +174,7 @@
         .login .login-form button:hover,
         .login .login-form input[type=submit]:hover {
             color: #ffffff;
-            box-shadow: inset 250px 0 0 0 #2aa15f;
+            box-shadow: inset 250px 0 0 0 #9E8605;
         }  
     </style>
 </head>
