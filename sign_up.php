@@ -37,7 +37,7 @@
             background-color: #3D1383;
             border-radius: 0.8cm;
             color: white;
-            margin: 0 auto;
+            margin: 90px auto;
             display: flex ;
             justify-content: center; /* Center horizontally */
             align-items: center; /* Center vertically */

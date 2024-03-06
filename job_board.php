@@ -35,6 +35,7 @@
             margin-top: 10px;
             border-radius: 0.3cm;
             text-align: center;
+            
         }
         .job{
             border-radius: 1cm;
@@ -73,7 +74,7 @@
     </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container-fluid nav">
             <a class="navbar-brand" href="#">
                 <img src="images/Screenshot (192).png" alt="" width="40" height="30" class="d-inline-block align-text-top">
@@ -116,7 +117,7 @@
             </div>
         </div>
     </nav>
-    <div class="header">
+    <div class="header" style="">
         <div class="label">
             <label for="search" class=""></label>
             <input type="text" placeholder="search" class="form-control">
@@ -124,7 +125,7 @@
             <button class="btn btn-primary" style=" background-color: #3D1383; margin-left: 5px; margin-top: ;" >Search</button>
         </div>      
     </div>
-    <div class="title">
+    <div class="title" style="">
         <h4>JOB Board</h4>
     </div>
         <div class="container-fluid">
@@ -146,8 +147,8 @@
                         </div>   
                     </div>        
                 </div>  
-                <div class="col-lg-4">
-                    <div class="job-tips" style="">
+                <div class="col-lg-4 ">
+                    <div class="job-tips" style="position: sticky;top: 3rem;margin-bottom: 98px;">
                         <h4 style="text-align: center;"> Job tips</h4>
                         <ul>
                             <li style="margin-bottom: 4px;">Define your goals and target your search</li>
@@ -157,12 +158,58 @@
                             <li style="margin-bottom: 4px;">Stay focused and persistent</li>
                         </ul>
                     </div>
+                </div> 
+                <div class="col-lg-8">
+                    <div class="job">  
+                        <div class="user-details">
+                            <img src="images/download 4.jpeg" name="profile_img" style="height: 30px; width: 30px; border-radius: 50%;" alt="">
+                            <h6>Username</h6>
+                        </div>
+                                  
+                        <div class="job_details">
+                            <p>Lorem ipsum dolor sit amet tibus debitis nihil repellendus mollitia quaerat reprehenderit. Corporis labore a repellendus amet dolore aut eveniet quod illo! Doloremque laudantium ratione porro animi a placeat similique veritatis consequatur nesciunt recusandae repudiandae, exercitationem possimus eos non eius, excepturi autem veniam reiciendis! Beatae ex voluptates libero, tempora placeat eos commodi ipsa laborum dolorem fuga expedita consequatur animi quam aliquam repellat quidem praesentium debitis autem ducimus! Quae repudiandae laudantium at eveniet delectus, officiis illo explicabo, facilis dolorem amet, consequuntur repellat esse laboriosam molestiae voluptates quo dolor. Id molestias consequuntur maxime.</p>
+                            <div class="icons" style="text-align: end; margin-right: 13px;">
+                                <a href=""><i class="fa-regular fa-heart fa-1x" style="margin-right: 10px; color: black;"></i></a>
+                                <a href=""><i class="fa-regular fa-comment fa-1x" style="color: black; margin-right: 10px;"></i></a>
+                                <a href=""><i class="fa-regular fa-share-from-square" style="color: black; margin-right: 10px;" ></i></a>
+                            </div>    
+                        </div>   
+                    </div>        
+                </div> 
+                <div class="col-lg-8">
+                    <div class="job">  
+                        <div class="user-details">
+                            <img src="images/download 4.jpeg" name="profile_img" style="height: 30px; width: 30px; border-radius: 50%;" alt="">
+                            <h6>Username</h6>
+                        </div>
+                                  
+                        <div class="job_details">
+                            <p>Lorem ipsum dolor sit amet tibus debitis nihil repellendus mollitia quaerat reprehenderit. Corporis labore a repellendus amet dolore aut eveniet quod illo! Doloremque laudantium ratione porro animi a placeat similique veritatis consequatur nesciunt recusandae repudiandae, exercitationem possimus eos non eius, excepturi autem veniam reiciendis! Beatae ex voluptates libero, tempora placeat eos commodi ipsa laborum dolorem fuga expedita consequatur animi quam aliquam repellat quidem praesentium debitis autem ducimus! Quae repudiandae laudantium at eveniet delectus, officiis illo explicabo, facilis dolorem amet, consequuntur repellat esse laboriosam molestiae voluptates quo dolor. Id molestias consequuntur maxime.</p>
+                            <div class="icons" style="text-align: end; margin-right: 13px;">
+                                <a href=""><i class="fa-regular fa-heart fa-1x" style="margin-right: 10px; color: black;"></i></a>
+                                <a href=""><i class="fa-regular fa-comment fa-1x" style="color: black; margin-right: 10px;"></i></a>
+                                <a href=""><i class="fa-regular fa-share-from-square" style="color: black; margin-right: 10px;" ></i></a>
+                            </div>    
+                        </div>   
+                    </div>        
+                </div> 
+                <div class="col-lg-8">
+                    <div class="job">  
+                        <div class="user-details">
+                            <img src="images/download 4.jpeg" name="profile_img" style="height: 30px; width: 30px; border-radius: 50%;" alt="">
+                            <h6>Username</h6>
+                        </div>
+                                  
+                        <div class="job_details">
+                            <p>Lorem ipsum dolor sit amet tibus debitis nihil repellendus mollitia quaerat reprehenderit. Corporis labore a repellendus amet dolore aut eveniet quod illo! Doloremque laudantium ratione porro animi a placeat similique veritatis consequatur nesciunt recusandae repudiandae, exercitationem possimus eos non eius, excepturi autem veniam reiciendis! Beatae ex voluptates libero, tempora placeat eos commodi ipsa laborum dolorem fuga expedita consequatur animi quam aliquam repellat quidem praesentium debitis autem ducimus! Quae repudiandae laudantium at eveniet delectus, officiis illo explicabo, facilis dolorem amet, consequuntur repellat esse laboriosam molestiae voluptates quo dolor. Id molestias consequuntur maxime.</p>
+                            <div class="icons" style="text-align: end; margin-right: 13px;">
+                                <a href=""><i class="fa-regular fa-heart fa-1x" style="margin-right: 10px; color: black;"></i></a>
+                                <a href=""><i class="fa-regular fa-comment fa-1x" style="color: black; margin-right: 10px;"></i></a>
+                                <a href=""><i class="fa-regular fa-share-from-square" style="color: black; margin-right: 10px;" ></i></a>
+                            </div>    
+                        </div>   
+                    </div>        
                 </div>   
-                <button id="slide-button">Slide Up</button>
-                    <div id="slide-up-content">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus, sapiente.
-                </div>
-   
             </div>    
         </div>    
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
