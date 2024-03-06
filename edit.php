@@ -1,15 +1,15 @@
 <?php 
 session_start();
 
-if (isset($_SESSION['no']) && isset($_SESSION['email'])) {
-include "connection.php";
+if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
+include "db_conn.php";
 include 'php/User.php';
 
-$user = getUserById($_SESSION['no'], $conn);
+$user = getUserById($_SESSION['id'], $conn);
 
  ?>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -45,8 +45,8 @@ $user = getUserById($_SESSION['no'], $conn);
             <label class="form-label">Full Name</label>
             <input type="text" 
                    class="form-control"
-                   name="fname"
-                   value="<?php echo $user['']?>">
+                   name="email"
+                   value="<?php echo $user['email']?>">
           </div>
 
           <div class="mb-3">
@@ -54,7 +54,7 @@ $user = getUserById($_SESSION['no'], $conn);
             <input type="text" 
                    class="form-control"
                    name="uname"
-                   value="<?php echo $user['']?>">
+                   value="<?php echo $user['username']?>">
           </div>
 
           <div class="mb-3">
@@ -62,13 +62,13 @@ $user = getUserById($_SESSION['no'], $conn);
             <input type="file" 
                    class="form-control"
                    name="pp">
-            <img src="upload/<?=$user['profile_pic']?>"
+            <img src="upload/<?=$user['pp']?>"
                  class="rounded-circle"
                  style="width: 70px">
             <input type="text"
                    hidden="hidden" 
                    name="old_pp"
-                   value="<?=$user['profile_pic']?>" >
+                   value="<?=$user['pp']?>" >
           </div>
           
           <button type="submit" class="btn btn-primary">Update</button>
@@ -76,11 +76,14 @@ $user = getUserById($_SESSION['no'], $conn);
         </form>
     </div>
     <?php }else{ 
-        header("Location: edit.php");
+        header("Location: home.php");
         exit;
 
     } ?>
 </body>
 </html>
 
-<?php }
+<?php }else {
+	header("Location: login.php");
+	exit;
+} ?>
