@@ -8,7 +8,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
 if(isset($_POST['email']) && 
    isset($_POST['uname'])){
 
-    include "../db_conn.php";
+    include "../db_conn.php";z
 
     $email = $_POST['email'];
     $uname = $_POST['username'];

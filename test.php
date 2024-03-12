@@ -1,86 +1,33 @@
-<?php 
-session_start();
+<?php
 
-if (isset($_SESSION['no']) && isset($_SESSION['email'])) {
-include "connection.php";
-include 'php/User.php';
 
-$user = getUserById($_SESSION['no'], $conn);
+require_once('connection.php');
+$stmt = $conn->prepare("SELECT profile_pic FROM user_credentials WHERE no=?");
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
+$row = $result->fetch_assoc();
+$profile_pic = $row["profile_pic"];
 
- ?>
+// Display the profile picture
+echo '<script type="text/javascript">';
+echo 'document.getElementById("profilePic").src="' . $profile_pic . '";';
+echo '</script>';
+
+// Close the statement and connection
+$stmt->close();
+$conn->close();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Edit Profile</title>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
 <body>
-    <?php if ($user) { ?>
-
-    <div class="d-flex justify-content-center align-items-center vh-100">
-        
-        <form class="shadow w-450 p-3" 
-              action="php/edit.php" 
-              method="post"
-              enctype="multipart/form-data">
-
-            <h4 class="display-4  fs-1">Edit Profile</h4><br>
-            <!-- error -->
-            <?php if(isset($_GET['error'])){ ?>
-            <div class="alert alert-danger" role="alert">
-              <?php echo $_GET['error']; ?>
-            </div>
-            <?php } ?>
-            
-            <!-- success -->
-            <?php if(isset($_GET['success'])){ ?>
-            <div class="alert alert-success" role="alert">
-              <?php echo $_GET['success']; ?>
-            </div>
-            <?php } ?>
-          <div class="mb-3">
-            <label class="form-label">Full Name</label>
-            <input type="text" 
-                   class="form-control"
-                   name="fname"
-                   value="<?php echo $user['']?>">
-          </div>
-
-          <div class="mb-3">
-            <label class="form-label">User name</label>
-            <input type="text" 
-                   class="form-control"
-                   name="uname"
-                   value="<?php echo $user['']?>">
-          </div>
-
-          <div class="mb-3">
-            <label class="form-label">Profile Picture</label>
-            <input type="file" 
-                   class="form-control"
-                   name="pp">
-            <img src="upload/<?=$user['profile_pic']?>"
-                 class="rounded-circle"
-                 style="width: 70px">
-            <input type="text"
-                   hidden="hidden" 
-                   name="old_pp"
-                   value="<?=$user['profile_pic']?>" >
-          </div>
-          
-          <button type="submit" class="btn btn-primary">Update</button>
-          <a href="home.php" class="link-secondary">Home</a>
-        </form>
-    </div>
-    <?php }else{ 
-        header("Location: edit.php");
-        exit;
-
-    } ?>
+<img id="profilePic" src="placeholder.jpg" alt="Profile Picture" width="200" height="200">
 </body>
 </html>
-
-<?php }

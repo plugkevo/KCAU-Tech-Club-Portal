@@ -1,8 +1,8 @@
 <?php
 require_once('connection.php');
-$sqlDeleteStudent= mysqli_query($conn, 
+$sqlDeleteBlog= mysqli_query($conn, 
 "DELETE FROM  blogs_table WHERE blog_id = '".$_GET['id']."'");
-if($sqlDeleteStudent)
+if($sqlDeleteBlog)
 {
     echo "user deleted successfully";
     header('location:profile.php');
