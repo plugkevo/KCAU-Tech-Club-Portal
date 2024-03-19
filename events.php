@@ -107,7 +107,7 @@
         .passed-details{
             background-color: ;
             border-radius: 0.4cm;
-            width: 40%;
+            
         }
     </style>
 </head>
@@ -204,7 +204,7 @@
     <div class="headerr"></div>
     
     <div class="container-fluid passed-events" style="display: flex; gap: 10px;">
-        <div id="myCarousel" class="carousel slide"  style="width: 60%;" data-ride="carousel">
+        <div id="myCarousel" class="carousel slide"  style="width: ;" data-ride="carousel">
             <!-- Indicators -->
             <ul class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -214,13 +214,13 @@
             <!-- The slideshow -->
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="images/event 1.webp" alt="Image 1" width="100%" height="350px">
+                    <img src="images/event 1.webp" alt="Image 1" width="400px" height="350px">
                 </div>
                 <div class="carousel-item">
-                    <img src="images/event 2.webp" alt="Image 2" width="100%" height="350px">
+                    <img src="images/event 2.webp" alt="Image 2" width="400px" height="350px">
                 </div>
                 <div class="carousel-item">
-                    <img src="images/event 3.jpg" alt="Image 3" width="100%" height="350px">
+                    <img src="images/event 3.jpg" alt="Image 3" width="400px" height="350px">
                 </div>
             </div>
 

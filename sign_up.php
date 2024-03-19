@@ -125,7 +125,7 @@
 
                 <label for="confirm_password" class="label">Confirm Password</label>
                 <input type="password" name="confirm_password" class="form-control" placeholder="Re-enter your password" required style=" width: 80%;">
-                <input type="file" class="form-control" name="profile_pic">
+             
                 <input type="text" hidden name="skills">
                 <input type="text" hidden name="languages">
                 <input type="text" hidden name ="bio">

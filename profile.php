@@ -24,7 +24,7 @@
     $bio=$row['bio'];
     $profile_pic=$row['profile_pic'];
     // Retrieve the blogs for the user
-    $sql = "SELECT * FROM blogs_table";
+    $sql = "SELECT * FROM blogs_table WHERE username = '$username'";
     $result = $conn->query($sql);
     $imageData = $row['profile_pic'];
     $imageMimeType = 'image/jpeg';
@@ -241,7 +241,7 @@ $conn->close();
                             
                                 <h4 style="text-align: center;"><b>Contactus!!</b></h4>
                                 <label for="message" class="label"></label>
-                                <input type="text" placeholder="Enter your message" name="email" class="form-control" style=" width: 80%; height: 50%;margin-left: 20px;">
+                                <textarea name="message" id="message" cols="30" rows="10"></textarea>
                                 <button class="btn btn-primary" style="background-color: #9E8605; margin-left: 50%; margin-top: 15px;">Send</button>
                             </div>
                     </div>
